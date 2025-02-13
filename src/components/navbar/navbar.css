@@ -2,7 +2,7 @@
 .header-section {
     background-color: #388e3c;
     color: white;
-    padding: 10px 3px;
+    padding: 2px;
     /* position: fixed; */
     width: 100%;
     z-index: 1000;
@@ -15,12 +15,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 35px;
+    padding: 5px 35px;
     transition: padding 0.3s ease;
 }
 
 h5 {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 /* Logo styling */
@@ -31,14 +31,13 @@ h5 {
 }
 
 header img {
-    height: 40px;
-    width: auto;
+   width: 20px;
 }
 
 header h2 {
-    font-size: 1.5rem; /* Increased for better visibility */
+    font-size: 1rem; /* Increased for better visibility */
     margin-left: 20px;
-    font-weight: 600;
+  
 }
 
 /* Hamburger Menu (Hidden by default) */
@@ -77,8 +76,8 @@ header h2 {
 /* Navbar links styling */
 nav {
     display: flex;
-    gap: 35px;
-    align-items: center;
+    justify-content: space-between; 
+   align-items: center;
 }
 
 nav a {
@@ -86,8 +85,6 @@ nav a {
     align-items: center;
     text-decoration: none;
     color: white;
-    font-size: 12px;
-    font-weight: 500;
     padding: 8px 18px;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -104,21 +101,25 @@ nav a:hover {
 
 nav a span {
     font-size: 1rem;
-    font-weight: bold;
     margin-right: 5px;
 }
-
+.icons{
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
 /* Logout Button Styling */
 .logout {
     background-color: #d32f2f;
     border-radius: 8px;
-    padding: 10px 15px;
+    padding: 5px 7px;
+    margin-left: 20px;
     color: white;
     cursor: pointer;
 }
 
 /* Mobile View Styling */
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     /* Adjust logo size for mobile */
     .logo h2 {
         font-size: 18px;
@@ -162,19 +163,19 @@ nav a span {
 @media (max-width: 1024px) {
     /* Adjust font sizes for medium screens */
     header h2 {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
 }
 
 /* Desktop View (Large screens) */
 @media (min-width: 1025px) {
-    header {
+    /* header {
         padding: 20px 40px;
-    }
-
+    } */
+/* 
     .logo {
         margin-right: 20px;
-    }
+    } */
 
     nav {
         display: flex;
