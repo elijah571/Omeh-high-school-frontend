@@ -12,7 +12,7 @@ import { uploadApiSlice } from './api/uploadSlice';
 // Configure the store with the reducers and api slices
 export const store = configureStore({
   reducer: {
-    auth: authReducer, // Reducer to manage auth state
+    auth: authReducer,
     [apiSlice.reducerPath]: apiSlice.reducer, // API reducer (generic slice for all API calls)
     [teacherApiSlice.reducerPath]: teacherApiSlice.reducer, 
     [studentApiSlice.reducerPath]: studentApiSlice.reducer, 

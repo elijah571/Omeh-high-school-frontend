@@ -1,10 +1,21 @@
+import { Routes, Route } from "react-router-dom";
+import { Navbar } from "./components/navbar/Navbar";
+import { Footer } from "./components/footer/Footer";
+
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <>
+    <Navbar/>
+      <Routes>
+        
+        <Route/>
+        
+      </Routes>
 
-export default App
+      <Footer/>
+    </>
+  );
+};
+
+export default App;
