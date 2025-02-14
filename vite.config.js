@@ -7,7 +7,9 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': 'https://omeh-high-school.onrender.com',  
+      changeOrigin: true,
+      secure: true,
     },
-    //allowedHosts: ['trivy-frontend.onrender.com'],  
+   
   },
 });

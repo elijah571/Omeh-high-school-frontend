@@ -1,20 +1,18 @@
 import { Routes, Route } from "react-router-dom";
-import { Navbar } from "./components/navbar/Navbar";
-import { Footer } from "./components/footer/Footer";
-
+import Layout from "./components/Layout";
+import { Dashboard } from "./pages/dashboard/Dashboard";
+import { Report } from "./pages/reports/Report";
+import { Login } from "./pages/auth/Login";
 
 const App = () => {
   return (
-    <>
-    <Navbar/>
-      <Routes>
-        
-        <Route/>
-        
-      </Routes>
-
-      <Footer/>
-    </>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/report" element={<Report />} />
+        <Route path="/login" element={<Login />} />
+      </Route>
+    </Routes>
   );
 };
 

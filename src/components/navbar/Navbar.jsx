@@ -2,12 +2,23 @@ import './navbar.css';
 import { FaTachometerAlt, FaMapMarkerAlt, FaSearch, FaFileAlt, FaUsers, FaBell, FaCog, FaSignOutAlt } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/features/auth/authSlice";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const dispatch = useDispatch();
+  
+  // Get user info from Redux state
+  const user = useSelector((state) => state.auth.userInfo);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    window.location.href = "/login"; // Redirect to login after logout
   };
 
   return (
@@ -29,27 +40,27 @@ export const Navbar = () => {
       {/* Navigation Links */}
       <nav className={`nav-links ${isMenuOpen ? 'open' : ''}`}>
         {/* Dashboard */}
-        <Link to={'/'}>
+        <Link to={'/dashboard'}>
           <span><FaTachometerAlt /></span>
           <h3>Dashboard</h3>
         </Link>
         {/* Attendance */}
-        <Link>
+        <Link to={'/attendance'}>
           <span><FaMapMarkerAlt /></span>
           <h3>Attendance</h3>
         </Link>
         {/* Reports */}
-        <Link>
+        <Link to={'/reports'}>
           <span><FaSearch /></span>
           <h3>Reports</h3>
         </Link>
         {/* News */}
-        <Link>
+        <Link to={'/news'}>
           <span><FaFileAlt /></span>
           <h3>News & Bulletins</h3>
         </Link>
         {/* Alumni */}
-        <Link>
+        <Link to={'/alumni'}>
           <span><FaUsers /></span>
           <h3>Alumni Bodies</h3>
         </Link>
@@ -61,11 +72,18 @@ export const Navbar = () => {
           <span><FaCog className="cursor-pointer" /></span>
         </div>
 
-        {/* Logout */}
-        <Link className="logout">
-          <span><FaSignOutAlt /></span>
-          <h3>Logout</h3>
-        </Link>
+        {/* Login/Logout Button */}
+        {user ? (
+          <Link onClick={handleLogout} className="logout">
+            <span><FaSignOutAlt /></span>
+            <h3>Logout</h3>
+          </Link>
+        ) : (
+          <Link to={'/login'} className="login">
+            <span><FaSignOutAlt /></span>
+            <h3>Login</h3>
+          </Link>
+        )}
       </nav>
     </div>
   );
